@@ -1,23 +1,38 @@
 import React from 'react'
+import { makeStyles } from '@material-ui/core/styles';
 import { Container, Typography, Button } from '@material-ui/core'
 
+import ClassRoster from '../../components/ClassRoster/ClassRoster'
+
+const useStyles = makeStyles({
+  pageContainer: {
+    display: "flex",
+    justifyContent: "center",
+    padding: "2rem 2rem"
+  }
+})
+
 export default function ClassroomPage(props) {
+  const classes = useStyles();
   const { match } = props
   const { params } = match
+
   return (
-    <div style={{ "color": "white" }}>
-      <Container maxWidth="md">
+    <Container class={classes.pageContainer}>
+      <Container class={classes.classPanel} maxWidth="md">
         <Typography variant="h3">
-          Hello Instructor
+          {params.classroomName}
         </Typography>
         <Button
           color="primary"
           variant="contained"
         >
-          Add Classroom
+          Add Student
         </Button>
       </Container>
-      {params.classroomName}
-    </div>
+      <Container maxWidth="md">
+        <ClassRoster/>
+      </Container>
+    </Container>
   )
 }

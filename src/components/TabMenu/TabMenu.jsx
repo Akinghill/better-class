@@ -4,7 +4,7 @@ import { Paper, Tabs, Tab } from '@material-ui/core'
 
 import TabPanel from './TabPanel'
 import List from '../List/List'
-import ClassRoster from '../ClassRoster/ClassRoster';
+import classrooms from '../../data/classroom'
 
 const useStyles = makeStyles((theme) => ({
   tabMenu: {
@@ -40,7 +40,7 @@ const TabMenu = ({ tabOptions }) => {
       {
         tabOptions.map((option, index) => (
           <TabPanel value={value} index={index}>
-            {option.toLowerCase() === "classrooms" && <List listItems={["Whetstone", "Perryville"]}></List>}
+            {option.toLowerCase() === "classrooms" && <List listItems={classrooms}></List>}
           </TabPanel>
         ))
       }

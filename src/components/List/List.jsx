@@ -19,8 +19,8 @@ export default function List({ listItems }) {
     <div>
       {
         listItems.map(item => (
-          <Link  style={{ "textDecoration": "none" }} to={`/classrooms/${item}`}>
-            <Typography className={classes.link} color="primary" variant="h4">{item}</Typography>
+          <Link  style={{ "textDecoration": "none" }} to={`/classrooms/${item.roomName}`}>
+            <Typography className={classes.link} color="primary" variant="h4">{item.state}, {item.roomName}</Typography>
           </Link>
         ))
       }
