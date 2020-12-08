@@ -34,7 +34,8 @@ const roster = [
     "lastName": "Smith",
     "id": "111111",
     "grade": "B",
-  }
+  },
 ]
+
 
 export default roster

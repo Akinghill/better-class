@@ -14,13 +14,19 @@ const useStyles = makeStyles({
 
 export default function List({ listItems }) {
   const classes = useStyles();
-
   return (
     <div>
+      {/* Define List Columns */}
+      <Typography variant="h4"></Typography>
+
       {
-        listItems.map(item => (
-          <Link  style={{ "textDecoration": "none" }} to={`/classrooms/${item.roomName}`}>
-            <Typography className={classes.link} color="primary" variant="h4">{item.state}, {item.roomName}</Typography>
+        listItems.listItems.map((item, i) => (
+          <Link style={{ "textDecoration": "none" }} to={`/classrooms/${item.roomName}`}>
+            <Typography className={classes.link} color="primary" variant="h5">
+              {
+                listItems.listItems.map(item => item)
+              }
+            </Typography>
           </Link>
         ))
       }

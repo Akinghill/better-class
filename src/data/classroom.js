@@ -14,7 +14,7 @@ const classrooms = [
   {
     "roomName": "RedRock",
     "state": "AZ",
-  }
+  },
 ]
 
 export default classrooms

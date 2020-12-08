@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Container, Typography, Button } from '@material-ui/core'
 
 import ClassRoster from '../../components/ClassRoster/ClassRoster'
+import TabMenu from '../../components/TabMenu/TabMenu'
 
 const useStyles = makeStyles({
   pageContainer: {
@@ -14,6 +15,7 @@ const useStyles = makeStyles({
 
 export default function ClassroomPage(props) {
   const classes = useStyles();
+  const tabOptions = ["Roster", "Projects", "Assessments"]
   const { match } = props
   const { params } = match
 
@@ -31,7 +33,12 @@ export default function ClassroomPage(props) {
         </Button>
       </Container>
       <Container maxWidth="md">
-        <ClassRoster/>
+        {/* <ClassRoster /> */}
+        <div style={{ "margin": "auto" }}>
+          <TabMenu
+            tabOptions={tabOptions}
+          />
+        </div>
       </Container>
     </Container>
   )
