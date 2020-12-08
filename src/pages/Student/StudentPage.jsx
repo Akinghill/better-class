@@ -2,8 +2,8 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import { Container, Typography, Button } from '@material-ui/core'
 
-import ClassRoster from '../../components/ClassRoster/ClassRoster'
 import TabMenu from '../../components/TabMenu/TabMenu'
+
 
 const useStyles = makeStyles({
   pageContainer: {
@@ -13,9 +13,9 @@ const useStyles = makeStyles({
   }
 })
 
-export default function ClassroomPage(props) {
+export default function StudentPage(props) {
   const classes = useStyles();
-  const tabOptions = ["Students", "Projects", "Assessments"]
+  const tabOptions = ["Projects", "Assessments"]
   const { match } = props
   const { params } = match
 
@@ -23,17 +23,11 @@ export default function ClassroomPage(props) {
     <Container class={classes.pageContainer}>
       <Container class={classes.classPanel} maxWidth="md">
         <Typography variant="h3">
-          {params.classroomName}
+          When this page is loaded, fetch api/student/:studentID 
+          and display info for that student
         </Typography>
-        <Button
-          color="primary"
-          variant="contained"
-        >
-          Add Student
-        </Button>
       </Container>
       <Container maxWidth="md">
-        {/* <ClassRoster /> */}
         <div style={{ "margin": "auto" }}>
           <TabMenu
             tabOptions={tabOptions}

@@ -1,6 +1,6 @@
 import React from 'react'
 import { DataGrid } from '@material-ui/data-grid'
-import roster from '../../data/roster.js'
+import roster from '../../data/student.js'
 const columns = [
   { field: 'id', headerName: 'DOC #', width: 90 },
   { field: 'firstName', headerName: 'First name', width: 130 },

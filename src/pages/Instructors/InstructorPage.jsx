@@ -26,7 +26,7 @@ const useStyles = makeStyles({
 export default function InstructorPage() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-  const tabOptions = ["Classrooms", "Contact Info", "Roster", "Other"]
+  const tabOptions = ["Classrooms", "Contact Info", "Students", "Other"]
 
   const handleOpen = () => {
     setOpen(true);

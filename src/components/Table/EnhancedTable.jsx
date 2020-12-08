@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { lighten, makeStyles } from '@material-ui/core/styles';
-import {Table, TableBody, TableCell, TableContainer,TableHead,TablePagination, TableRow,TableSortLabel, Paper} from '@material-ui/core';
+import { Link } from 'react-router-dom'
+import { makeStyles } from '@material-ui/core/styles';
+import { Table, TableBody, TableCell, TableContainer, TableRow } from '@material-ui/core';
 
 import EnhancedTableHead from './EnhancedTableHead'
 
@@ -32,13 +32,6 @@ function stableSort(array, comparator) {
 }
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    width: '100%',
-  },
-  paper: {
-    width: '100%',
-    marginBottom: theme.spacing(2),
-  },
   table: {
     minWidth: 750,
     background: "#191818",
@@ -56,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function EnhancedTable({rows, columns}) {
+export default function EnhancedTable({ rows, columns, option }) {
   const classes = useStyles();
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState('calories');
@@ -84,75 +77,65 @@ export default function EnhancedTable({rows, columns}) {
 
   };
 
-  const handleChangePage = (event, newPage) => {
-    setPage(newPage);
-  };
-
-  const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(parseInt(event.target.value, 10));
-    setPage(0);
-  };
-
   const isSelected = (name) => selected.indexOf(name) !== -1;
 
   const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
   return (
-    <div className={classes.root}>
-      <Paper className={classes.paper}>
-        <TableContainer>
-          <Table
-            className={classes.table}
-            aria-labelledby="tableTitle"
-            size={dense ? 'small' : 'medium'}
-            aria-label="enhanced table"
-          >
-            <EnhancedTableHead
-              headCells={columns}
-              classes={classes}
-              numSelected={selected.length}
-              order={order}
-              orderBy={orderBy}
-              onSelectAllClick={handleSelectAllClick}
-              onRequestSort={handleRequestSort}
-              rowCount={rows.length}
-            />
-            <TableBody>
-              {stableSort(rows, getComparator(order, orderBy))
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((row, index) => {
-                  const isItemSelected = isSelected(row.name);
-                  const keys = Object.keys(row)
+    <TableContainer>
+      <Table
+        style={{ "borderRadius": "" }}
+        className={classes.table}
+        aria-labelledby="tableTitle"
+        size={dense ? 'small' : 'medium'}
+        aria-label="enhanced table"
+      >
+        <EnhancedTableHead
+          headCells={columns}
+          classes={classes}
+          numSelected={selected.length}
+          order={order}
+          orderBy={orderBy}
+          onSelectAllClick={handleSelectAllClick}
+          onRequestSort={handleRequestSort}
+          rowCount={rows.length}
+        />
+        <TableBody>
+          {stableSort(rows, getComparator(order, orderBy))
+            .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+            .map((row, index) => {
+              const isItemSelected = isSelected(row.name);
+              const keys = Object.keys(row)
 
-                  return (
-                    <TableRow
-                      hover
-                      onClick={(event) => handleClick(event, row.name)}
-                      aria-checked={isItemSelected}
-                      tabIndex={-1}
-                      key={row.name}
-                      selected={isItemSelected}
-                    >
-                      {
-                        keys.map(obKey => (
-                          <TableCell>
-                            {row[obKey]}
-                          </TableCell>
-                        ))
-                        
-                      }
-                    </TableRow>
-                  );
-                })}
-              {emptyRows > 0 && (
-                <TableRow style={{ height: (dense ? 33 : 53) * emptyRows }}>
-                  <TableCell colSpan={6} />
+              return (
+                <TableRow
+                  hover
+                  onClick={(event) => handleClick(event, row.name)}
+                  aria-checked={isItemSelected}
+                  tabIndex={-1}
+                  key={row.name}
+                  selected={isItemSelected}
+                >
+                  {
+                    keys.map(obKey => (
+                      <TableCell>
+                        <Link to={`/${option}/${row.id}`}>
+                          {row[obKey]}
+                        </Link>
+                      </TableCell>
+                    ))
+
+                  }
                 </TableRow>
-              )}
-            </TableBody>
-          </Table>
-        </TableContainer>
-      </Paper>
-    </div>
+              );
+            })}
+          {emptyRows > 0 && (
+            <TableRow style={{ height: (dense ? 33 : 53) * emptyRows }}>
+              <TableCell colSpan={6} />
+            </TableRow>
+          )}
+        </TableBody>
+      </Table>
+    </TableContainer>
   );
 }

@@ -1,14 +1,15 @@
 import React from 'react';
-import { ThemeProvider } from '@material-ui/core/styles';
-import { makeStyles } from '@material-ui/core/styles'
+import { Route, Switch } from 'react-router-dom';
+import { ThemeProvider, makeStyles } from '@material-ui/core/styles';
+import { Paper } from '@material-ui/core';
 
 import InstructorPage from './pages/Instructors/InstructorPage';
 import SignInSignUpPage from './pages/SignInSignUp/SignInSignUpPage';
 import ClassroomPage from './pages/Classrooms/ClassroomPage';
-import { Paper } from '@material-ui/core';
-import theme from './theme'
-import { Route, Switch } from 'react-router-dom';
+import StudentPage from './pages/Student/StudentPage';
 import MainLayout from './components/Layout/MainLayout';
+
+import theme from './theme'
 
 const useStyles = makeStyles({
   app: {
@@ -27,6 +28,7 @@ function App() {
             <Route exact path='/signin' component={SignInSignUpPage} />
             <Route exact path='/' component={InstructorPage} />
             <Route exact path='/classrooms/:classroomName' component={ClassroomPage} />
+            <Route exact path='/students/:studentid' component={StudentPage} />
           </Switch>
         </Paper>
       </MainLayout>

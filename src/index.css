@@ -13,6 +13,8 @@ code {
     monospace;
 }
 
-a:visited {
+a, a:visited, a:active {
+  cursor: pointer;
   color: white;
+  text-decoration: none;
 }
