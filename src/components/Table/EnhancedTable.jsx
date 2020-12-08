@@ -119,7 +119,7 @@ export default function EnhancedTable({ rows, columns, option }) {
                   {
                     keys.map(obKey => (
                       <TableCell>
-                        <Link to={`/${option}/${row.id}`}>
+                        <Link to={`/better-class/${option}/${row.id}`}>
                           {row[obKey]}
                         </Link>
                       </TableCell>

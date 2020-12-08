@@ -25,10 +25,10 @@ function App() {
       <MainLayout>
         <Paper className={classes.app} square>
           <Switch>
-            <Route exact path='/signin' component={SignInSignUpPage} />
-            <Route exact path='/' component={InstructorPage} />
-            <Route exact path='/classrooms/:classroomName' component={ClassroomPage} />
-            <Route exact path='/students/:studentid' component={StudentPage} />
+            <Route exact path='/better-class/signin' component={SignInSignUpPage} />
+            <Route exact path='/better-class/' component={InstructorPage} />
+            <Route exact path='/better-class/classrooms/:classroomName' component={ClassroomPage} />
+            <Route exact path='/better-class/students/:studentid' component={StudentPage} />
           </Switch>
         </Paper>
       </MainLayout>
