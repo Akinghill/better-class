@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button, Container, Modal, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 
 import AddClassForm from '../../components/AddClassForm/AddClassForm'
 import TabMenu from '../../components/TabMenu/TabMenu'
 import Navbar from '../../components/Navbar/Navbar';
+import SignInForm from '../../components/SignIn/SignIn'
 
 const useStyles = makeStyles({
   instructorPage: {
@@ -25,7 +26,7 @@ const useStyles = makeStyles({
 
 export default function InstructorPage() {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const tabOptions = ["Classrooms", "Contact Info", "Students", "Other"]
 
   const handleOpen = () => {
@@ -78,7 +79,7 @@ export default function InstructorPage() {
             />
           </div>
         </Container>
-{/* 
+        {/* 
         <Modal
           open={open}
           onClose={handleClose}

@@ -28,7 +28,6 @@ export default function Navbar() {
           <Typography variant="h6" className={classes.title}>
             Better Class
           </Typography>
-          <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
     </div>

@@ -6,7 +6,7 @@ const useStyles = makeStyles({
   root: {
     width: 400,
     padding: "1rem 2rem",
-    marginTop: "3rem"
+    margin: "auto"
   },
   pageContainer: {
     display: "flex",
@@ -26,7 +26,6 @@ const useStyles = makeStyles({
 });
 
 
-
 export default function SignInForm({ formType }) {
   const classes = useStyles();
   const [email, setEmail] = React.useState("");
@@ -42,11 +41,6 @@ export default function SignInForm({ formType }) {
 
   return (
     <Card elevation={3} className={classes.root}>
-      <Typography variant="h3" className={classes.formHeader}>
-        {
-          formType === "register" ? "Register" : "Sign In"
-        }
-      </Typography>
       <form
         onSubmit={handleSubmit}
         className={classes.form}
