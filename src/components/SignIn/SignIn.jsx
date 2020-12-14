@@ -30,7 +30,7 @@ function TabPanel(props) {
     >
       {value === index && (
         <Box p={3}>
-          <Typography>{children}</Typography>
+          {children}
         </Box>
       )}
     </div>
@@ -54,10 +54,10 @@ const SignIn = (props) => {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        <SignInForm/>
+        <SignInForm />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <SignInForm formType="register"/>
+        <SignInForm formType="register" />
       </TabPanel>
     </>
   );
