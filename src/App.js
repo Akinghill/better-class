@@ -31,7 +31,7 @@ function App() {
 
 
   return (
-    <Provider store={store}>
+    // <Provider store={store}>
       <ThemeProvider theme={theme}>
         <MainLayout>
           <Paper className={classes.app} square>
@@ -44,7 +44,7 @@ function App() {
           </Paper>
         </MainLayout>
       </ThemeProvider>
-    </Provider>
+    // </Provider>
   );
 }
 

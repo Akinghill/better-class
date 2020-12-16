@@ -1,7 +1,7 @@
 import { configure } from '@testing-library/react'
 import axios from 'axios'
 import authReducer from '../reducers/authReducer'
-import { returnErrors } from './types'
+// import { returnErrors } from './types'
 
 import {
   USER_LOADED,
@@ -40,10 +40,10 @@ export const loadUser = () => (dispatch, getState) => {
       payload: res.data
     }))
     .catch(err => {
-      dispatch(returnErrors(err.response.data,err.response.status))
-      dispatch({
-        type: AUTH_ERROR
-      })
+      // dispatch(returnErrors(err.response.data,err.response.status))
+      // dispatch({
+      //   type: AUTH_ERROR
+      // })
     })
 
   axios.get('')

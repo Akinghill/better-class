@@ -2,6 +2,8 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, Card, TextField } from '@material-ui/core'
 
+import { signInWithGoogle } from '../../firebase/firebase.utils'
+
 const useStyles = makeStyles({
   root: {
     width: 400,
@@ -98,6 +100,9 @@ export default function SignInForm({ formType }) {
         }
         <Button variant="contained" type="submit">
           Submit
+        </Button>
+        <Button variant="contained" onClick={signInWithGoogle}>
+          Google Sign In
         </Button>
       </form>
     </Card>
