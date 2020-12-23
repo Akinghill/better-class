@@ -117,8 +117,8 @@ export default function EnhancedTable({ rows, columns, option }) {
                   selected={isItemSelected}
                 >
                   {
-                    keys.map(obKey => (
-                      <TableCell>
+                    keys.map((obKey,i) => (
+                      <TableCell key={`${row.name}+${i}`}>
                         <Link to={`/better-class/${option}/${row.id}`}>
                           {row[obKey]}
                         </Link>

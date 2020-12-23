@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Navbar() {
+export default function Navbar({ currentUser }) {
   const classes = useStyles();
 
   return (
@@ -28,6 +28,9 @@ export default function Navbar() {
           <Typography variant="h6" className={classes.title}>
             Better Class
           </Typography>
+          {
+            currentUser && <Button>Logout</Button>
+          }
         </Toolbar>
       </AppBar>
     </div>
