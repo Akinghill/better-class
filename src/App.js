@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { ThemeProvider } from '@material-ui/core/styles';
 
-import ClassroomPage from './pages/Classrooms/ClassroomPage';
+import ClassroomPage from './pages/Classroom/ClassroomPage';
 import StudentPage from './pages/Student/StudentPage';
 import InstructorPage from './pages/Instructor/InstructorPage';
 import MainLayout from './components/Layout/MainLayout';
@@ -19,9 +19,9 @@ class App extends React.Component {
         <ThemeProvider theme={theme}>
           <MainLayout>
             <Switch>
-              <Route exact path='/better-class/' component={HomePage} />
-              <Route exact path='/better-class/classrooms/:classroomName' component={ClassroomPage} />
-              <Route exact path='/better-class/students/:studentid' component={StudentPage} />
+              <Route exact path='/' component={HomePage} />
+              <Route exact path='/classroom/:classroomId' component={ClassroomPage} />
+              <Route exact path='/students/:studentid' component={StudentPage} />
             </Switch>
           </MainLayout>
         </ThemeProvider>

@@ -2,19 +2,13 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {compose} from 'redux'
 import { firestoreConnect} from 'react-redux-firebase'
+import ClassroomsList from '../../components/ClassroomsList/ClassroomsList'
 
 function HomePage(props) {
-  console.log(props)
   return (
-    <div>
-      {
-        props.classrooms.map((classroom) => (
-          <div key={classroom.id}>
-            <h1>{classroom.roomName}</h1>
-          </div>
-        ))
-      }
-    </div>
+    <>
+      <ClassroomsList classrooms={props.classrooms}></ClassroomsList>
+    </>
   )
 }
 const mapStateToProps = (state) => {
