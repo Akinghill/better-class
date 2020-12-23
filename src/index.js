@@ -4,8 +4,7 @@ import './index.css';
 import App from './App';
 import { ThemeProvider } from '@material-ui/core';
 import theme from "./theme"
-import { Router } from 'react-router-dom';
-import { createBrowserHistory } from 'history'
+import { BrowserRouter } from 'react-router-dom';
 
 import { createStore, applyMiddleware, compose } from 'redux'
 import rootReducer from './store/reducers/rootReducer'
@@ -17,8 +16,6 @@ import { createFirestoreInstance, reduxFirestore, getFirestore } from 'redux-fir
 import { ReactReduxFirebaseProvider, getFirebase } from 'react-redux-firebase'
 
 import 'firebase/firestore';
-
-const history = createBrowserHistory()
 
 const rrfConfig = {
   userProfile: 'students',
@@ -44,11 +41,11 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <ReactReduxFirebaseProvider {...rrfProps}>
-        <Router history={history}>
+        <BrowserRouter basename='/better-class'>
           <ThemeProvider theme={theme}>
             <App />
           </ThemeProvider>
-        </Router>
+        </BrowserRouter>
       </ReactReduxFirebaseProvider>
     </Provider>
   </React.StrictMode>,
