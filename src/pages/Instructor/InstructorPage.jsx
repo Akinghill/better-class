@@ -4,8 +4,6 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import AddClassForm from '../../components/AddClassForm/AddClassForm'
 import TabMenu from '../../components/TabMenu/TabMenu'
-import Navbar from '../../components/Navbar/Navbar';
-import SignInForm from '../../components/SignIn/SignIn'
 
 const useStyles = makeStyles({
   instructorPage: {
@@ -24,7 +22,7 @@ const useStyles = makeStyles({
   }
 });
 
-export default function InstructorPage() {
+function InstructorPage() {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const tabOptions = ["Classrooms", "Contact Info", "Students", "Other"]
@@ -93,3 +91,5 @@ export default function InstructorPage() {
     </>
   )
 }
+
+export default InstructorPage

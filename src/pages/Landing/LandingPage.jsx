@@ -4,7 +4,7 @@ import SignIn from '../../components/SignIn/SignIn';
 
 const useStyles = makeStyles({});
 
-const LandingPage = () => {
+const LandingPage = (props) => {
   return (
     <>
       <SignIn />

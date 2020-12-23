@@ -1,51 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { ThemeProvider, makeStyles } from '@material-ui/core/styles';
-import { Paper } from '@material-ui/core';
+import { ThemeProvider } from '@material-ui/core/styles';
 
-import { Provider } from 'react-redux'
-import { loadUser } from './actions/authActions'
-
-import InstructorPage from './pages/Instructors/InstructorPage';
 import ClassroomPage from './pages/Classrooms/ClassroomPage';
 import StudentPage from './pages/Student/StudentPage';
+import InstructorPage from './pages/Instructor/InstructorPage';
 import MainLayout from './components/Layout/MainLayout';
-import LandingPage from './pages/Landing/LandingPage';
+import SignInForm from './components/SignIn/SignInForm';
+import AddClassForm from './components/AddClassForm/AddClassForm';
 
-import store from './store'
 import theme from './theme'
+import HomePage from './pages/Home/HomePage';
 
-const useStyles = makeStyles({
-  app: {
-    minHeight: "100vh",
-    paddingTop: "1rem"
-  }
-});
+class App extends React.Component {
 
-function App() {
-  const classes = useStyles();
-
-  useEffect(() => {
-    store.dispatch(loadUser());
-  }, []);
-
-
-  return (
-    // <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <MainLayout>
-          <Paper className={classes.app} square>
+  render() {
+    return (
+        <ThemeProvider theme={theme}>
+          <MainLayout>
             <Switch>
-              <Route exact path='/better-class/' component={LandingPage} />
-              <Route exact path='/better-class/instructors/:instructor' component={InstructorPage} />
+              <Route exact path='/better-class/' component={HomePage} />
               <Route exact path='/better-class/classrooms/:classroomName' component={ClassroomPage} />
               <Route exact path='/better-class/students/:studentid' component={StudentPage} />
             </Switch>
-          </Paper>
-        </MainLayout>
-      </ThemeProvider>
-    // </Provider>
-  );
+          </MainLayout>
+        </ThemeProvider>
+    );
+  }
+
 }
 
-export default App;
+export default App
