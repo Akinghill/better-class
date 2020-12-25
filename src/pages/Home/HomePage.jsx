@@ -1,23 +1,27 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import {compose} from 'redux'
-import { firestoreConnect} from 'react-redux-firebase'
-import ClassroomsList from '../../components/ClassroomsList/ClassroomsList'
+import { connect } from 'react-redux'
+import { compose } from 'redux'
+import { firestoreConnect } from 'react-redux-firebase'
 
-function HomePage(props) {
+import Dashboard from '../../components/Dashboard/Dashboard'
+import AuthForm from '../../components/Auth/AuthForm'
+
+function HomePage({ auth }) {
   return (
     <>
-      <ClassroomsList classrooms={props.classrooms}></ClassroomsList>
+    { auth.isEmpty ? <AuthForm/> : <Dashboard/>}
     </>
   )
 }
 const mapStateToProps = (state) => {
   return {
-    classrooms: state.firestore.ordered.classrooms
+    classrooms: state.firestore.ordered.classrooms,
+    auth: state.firebase.auth,
+    profile: state.firebase.profile
   }
 }
 
 export default compose(
   connect(mapStateToProps),
-  firestoreConnect(()=>['classrooms'])
+  firestoreConnect(() => ['classrooms'])
 )(HomePage)

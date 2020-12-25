@@ -1,7 +1,10 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles'
 import { AppBar, Toolbar, Typography, IconButton, Button } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu';
+import SignedInLinks from './SignedInLinks';
+import SignedOutLinks from './SignedOutLinks';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,8 +18,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Navbar({ currentUser }) {
+function Navbar(props) {
+  const { auth } = props
   const classes = useStyles();
+  console.log(auth.uid)
 
   return (
     <div className={classes.root}>
@@ -29,10 +34,18 @@ export default function Navbar({ currentUser }) {
             Better Class
           </Typography>
           {
-            currentUser && <Button>Logout</Button>
+            auth.uid ? <SignedInLinks/> : <SignedOutLinks/>
           }
         </Toolbar>
       </AppBar>
     </div>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    auth: state.firebase.auth
+  }
+}
+
+export default connect(mapStateToProps)(Navbar)
