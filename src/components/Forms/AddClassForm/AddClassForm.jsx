@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { Button, Paper, TextField, Typography } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import { connect } from 'react-redux'
-import classrooms from '../../data/classroom';
-import { createClassroom } from '../../store/actions/classroomActions'
+import classrooms from '../../../data/classroom';
+import { createClassroom } from '../../../store/actions/classroomActions'
 
 const useStyles = makeStyles({
   addClassForm: {
