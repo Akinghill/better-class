@@ -21,7 +21,6 @@ const useStyles = makeStyles((theme) => ({
 function Navbar(props) {
   const { auth } = props
   const classes = useStyles();
-  console.log(auth.uid)
 
   return (
     <div className={classes.root}>
