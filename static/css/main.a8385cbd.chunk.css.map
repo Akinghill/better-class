@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/index.css"],"names":[],"mappings":"AAAA,KACE,QAAS,CACT,wBACF,CAEA,qBACE,cAAe,CACf,UAAY,CACZ,oBACF","file":"main.a8385cbd.chunk.css","sourcesContent":["body {\n  margin: 0;\n  background-color: #3b3b3b;\n}\n\na, a:visited, a:active {\n  cursor: pointer;\n  color: white;\n  text-decoration: none;\n}\n"]}
