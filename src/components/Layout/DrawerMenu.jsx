@@ -8,8 +8,9 @@ import GroupAddIcon from '@material-ui/icons/GroupAdd';
 import InfoIcon from '@material-ui/icons/Info';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import PersonAddIcon from '@material-ui/icons/PersonAdd';
 
-import { toggleDrawer } from '../../store/actions/buttonActions'
+import { toggleDrawer, toggleStudentForm } from '../../store/actions/buttonActions'
 
 const drawerWidth = 240;
 
@@ -52,8 +53,6 @@ function DrawerMenu(props) {
   const classes = useStyles()
   const theme = useTheme();
 
-
-  console.log("drawer open is ", open)
   return (
     <div>
       <Drawer
@@ -76,9 +75,13 @@ function DrawerMenu(props) {
         </div>
         <Divider />
         <List>
-          {['Inbox', 'Add Classroom', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InfoIcon /> : <GroupAddIcon />}</ListItemIcon>
+          {['Info', 'Add Student', 'Add Classroom'].map((text, index) => (
+            <ListItem button key={text} onClick={props.toggleStudentForm}>
+              <ListItemIcon>
+                {index === 0 && <InfoIcon />}
+                {index === 1 && <PersonAddIcon />}
+                {index === 2 && <GroupAddIcon />}
+              </ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}
@@ -106,6 +109,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     toggleDrawer: () => dispatch(toggleDrawer()),
+    toggleStudentForm: () => dispatch(toggleStudentForm()),
   }
 }
 
