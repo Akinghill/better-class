@@ -1,3 +1,5 @@
+import { TrendingUpTwoTone } from "@material-ui/icons";
+
 const initState = {
   drawerOpen: false, 
   modals: {
@@ -6,19 +8,28 @@ const initState = {
   }
 }
 
-const authReducer = (state = initState, action) => {
+const buttonReducer = (state = initState, action) => {
   switch (action.type) {
     case "TOGGLE_DRAWER":
       return {
         ...state,
         drawerOpen: !state.drawerOpen
       }
-    case "TOGGLE_STUDENT_FORM":
+    case "OPEN_CLASSROOM_FORM":
       return {
         ...state,
         modals: {
           ...state.modals,
-          showAddClassroom: !state.modals.showAddClassroom
+          showAddClassroom: TrendingUpTwoTone
+        }
+      }
+    case "OPEN_STUDENT_FORM":
+      console.log('open student form')
+      return {
+        ...state,
+        modals: {
+          ...state.modals,
+          showAddStudent: true
         }
       }
     case "CLOSE_MODAL":
@@ -33,4 +44,4 @@ const authReducer = (state = initState, action) => {
   }
 };
 
-export default authReducer;
+export default buttonReducer;

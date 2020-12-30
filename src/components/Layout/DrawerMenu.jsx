@@ -10,7 +10,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 
-import { toggleDrawer, toggleStudentForm } from '../../store/actions/buttonActions'
+import { toggleDrawer, openClassroomForm, openStudentForm } from '../../store/actions/buttonActions'
 
 const drawerWidth = 240;
 
@@ -75,7 +75,23 @@ function DrawerMenu(props) {
         </div>
         <Divider />
         <List>
-          {['Info', 'Add Student', 'Add Classroom'].map((text, index) => (
+            <ListItem button onClick={props.openStudentForm}>
+              <ListItemIcon>
+                <PersonAddIcon />
+              </ListItemIcon>
+              <ListItemText primary="Add Student" />
+            </ListItem>
+
+            <ListItem button onClick={props.openClassroomForm}>
+              <ListItemIcon>
+                <GroupAddIcon />
+              </ListItemIcon>
+              <ListItemText primary="Add Classroom" />
+            </ListItem>
+
+
+
+          {/* {['Info', 'Add Student', 'Add Classroom'].map((text, index) => (
             <ListItem button key={text} onClick={props.toggleStudentForm}>
               <ListItemIcon>
                 {index === 0 && <InfoIcon />}
@@ -84,17 +100,9 @@ function DrawerMenu(props) {
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
-          ))}
+          ))} */}
         </List>
         <Divider />
-        {/* <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <GroupAddIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List> */}
       </Drawer>
     </div>
   )
@@ -109,7 +117,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     toggleDrawer: () => dispatch(toggleDrawer()),
-    toggleStudentForm: () => dispatch(toggleStudentForm()),
+    openClassroomForm: () => dispatch(openClassroomForm()),
+    openStudentForm: () => dispatch(openStudentForm()),
   }
 }
 

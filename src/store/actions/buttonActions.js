@@ -1,17 +1,23 @@
 export const toggleDrawer = () => {
-  return (dispatch, getState) => {
-    dispatch({ type: 'TOGGLE_DRAWER'});
+  return (dispatch) => {
+    dispatch({ type: 'TOGGLE_DRAWER' });
   }
 }
 
-export const toggleStudentForm = () => {
+export const openStudentForm = () => {
   return (dispatch) => {
-    dispatch({type: "TOGGLE_STUDENT_FORM"})
+    dispatch({ type: "OPEN_STUDENT_FORM" })
+  }
+}
+
+export const openClassroomForm = () => {
+  return (dispatch) => {
+    dispatch({ type: "OPEN_CLASSROOM_FORM" })
   }
 }
 
 export const closeModal = () => {
   return (dispatch) => {
-    dispatch({type: "CLOSE_MODAL"})
+    dispatch({ type: "CLOSE_MODAL" })
   }
 }

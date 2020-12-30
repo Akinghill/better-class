@@ -51,7 +51,7 @@ function AddClassForm(props) {
             console.log(newClassroom)
           }}
         >
-          <Typography className={classes.formHeader} variant="h4">Create New Classroom</Typography>
+          <Typography className={classes.formHeader} variant="h4">Add New Classroom</Typography>
           <TextField
             onChange={(e) => setRoomName(e.target.value)}
             required
