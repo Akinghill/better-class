@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import { Button, Paper, TextField, Typography } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import { connect } from 'react-redux'
-import classrooms from '../../../data/classroom';
-import { createClassroom } from '../../../store/actions/classroomActions'
+import classrooms from '../../data/classroom';
+import { createClassroom } from '../../store/actions/classroomActions'
 
 const useStyles = makeStyles({
-  addClassForm: {
+  addStudentForm: {
     width: "400px",
     padding: "2rem"
   },
@@ -26,7 +26,7 @@ const useStyles = makeStyles({
   }
 });
 
-function AddClassForm(props) {
+function AddStudentForm(props) {
   const classes = useStyles();
   const [roomName, setRoomName] = useState('');
   const [state, setState] = useState('')
@@ -34,7 +34,7 @@ function AddClassForm(props) {
   const [unitName, setUnitName] = useState('')
 
   return (
-    <Paper className={classes.addClassForm} >
+    <Paper className={classes.addStudentForm} >
       <form
         className={classes.form}
         onSubmit={(e) => {
@@ -101,4 +101,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(AddClassForm)
+export default connect(null, mapDispatchToProps)(AddStudentForm)
