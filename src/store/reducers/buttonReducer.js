@@ -1,20 +1,32 @@
 const initState = {
   drawerOpen: false, 
+  modals: {
+    showAddStudent: false,
+    showAddClassroom: false
+  }
 }
 
 const authReducer = (state = initState, action) => {
   switch (action.type) {
     case "TOGGLE_DRAWER":
-      console.log('TOGGLEDRAWER')
       return {
         ...state,
         drawerOpen: !state.drawerOpen
       }
-    case "CLOSE_DRAWER":
-      console.log('CLOSE DRAWER')
+    case "TOGGLE_STUDENT_FORM":
       return {
         ...state,
-        drawerOpen: false
+        modals: {
+          ...state.modals,
+          showAddClassroom: !state.modals.showAddClassroom
+        }
+      }
+    case "CLOSE_MODAL":
+      return {
+        ...state,
+        modals: {
+          ...initState.modals
+        }
       }
     default:
       return state
