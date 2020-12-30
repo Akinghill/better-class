@@ -3,9 +3,7 @@ import { connect } from 'react-redux'
 import { signUp } from '../../store/actions/authActions'
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, Card, TextField, Typography } from '@material-ui/core'
-
 import { signIn } from '../../store/actions/authActions'
-import { classnames } from '@material-ui/data-grid';
 
 const useStyles = makeStyles((theme) => ({
   root: {

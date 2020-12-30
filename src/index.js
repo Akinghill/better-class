@@ -18,43 +18,6 @@ import { ReactReduxFirebaseProvider, getFirebase, isLoaded } from 'react-redux-f
 
 import 'firebase/firestore';
 
-// const rrfConfig = {
-//   userProfile: 'students',
-//   useFirestoreForProfile: true
-// }
-
-// const store = createStore(rootReducer,
-//   compose(
-//     applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore })),
-//     reduxFirestore(firebase)
-//   )
-// );
-
-// const profileSpecificProps = {
-//   userProfile: 'users',
-//   useFirestoreForProfile: true,
-//   enableRedirectHandling: false,
-//   resetBeforeLogin: false
-// }
-
-
-// const rrfProps = {
-//   firebase,
-//   useFirestoreForProfile: true,
-//   config: rrfConfig,
-//   dispatch: store.dispatch,
-//   createFirestoreInstance,
-//   userProfile: 'users', // where profiles are stored in database
-//   presence: 'presence', // where list of online users is stored in database
-//   sessions: 'sessions'
-// }
-
-// function AuthIsLoaded({ children }) {
-//   const auth = useSelector(state => state.firebase.auth)
-//   if (!isLoaded(auth)) return <div>Loading Screen...</div>;
-//   return children
-// }
-
 const store = createStore(
   rootReducer, 
   compose(
