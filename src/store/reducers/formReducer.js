@@ -7,7 +7,7 @@ const initState = {
   ]
 }
 
-const classroomReducer = (state = initState, action) => {
+const formReducer = (state = initState, action) => {
   switch (action.type) {
     case 'CREATE_CLASSROOM':
       console.log('create classroom', action.classroom);
@@ -15,9 +15,15 @@ const classroomReducer = (state = initState, action) => {
     case "CREATE_CLASSROOM_ERROR":
       console.log('create classroom error', action.err)
       return state;
+    case "CREATE_STUDENT":
+      console.log('create student')
+      return state;
+    case "CREATE_STUDENT_ERROR":
+      console.log('create student error', action.err)
+      return state;
     default:
       return state;
   }
 };
 
-export default classroomReducer;
+export default formReducer;

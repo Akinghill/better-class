@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 import { Button, Dialog, Paper, TextField, Typography } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import { connect } from 'react-redux'
-import classrooms from '../../data/classroom';
-import { createClassroom } from '../../store/actions/classroomActions'
+import { createClassroom } from '../../store/actions/formActions'
 import { closeModal } from '../../store/actions/buttonActions'
 
 const useStyles = makeStyles({
@@ -89,6 +88,7 @@ function AddClassForm(props) {
             variant="contained"
             color="primary"
             className={classes.submitBtn}
+            onClick={props.closeModal}
           >
             Add Classroom
         </Button>

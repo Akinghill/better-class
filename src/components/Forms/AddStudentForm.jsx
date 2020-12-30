@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 import { Button, Dialog, Paper, TextField, Typography } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import { connect } from 'react-redux'
-import classrooms from '../../data/classroom';
-import { createClassroom } from '../../store/actions/classroomActions'
+import { createStudent } from '../../store/actions/formActions'
 import { closeModal } from '../../store/actions/buttonActions'
 
 const useStyles = makeStyles({
@@ -29,10 +28,10 @@ const useStyles = makeStyles({
 
 function AddStudentForm(props) {
   const classes = useStyles();
-  const [roomName, setRoomName] = useState('');
-  const [state, setState] = useState('')
-  const [city, setCity] = useState('')
-  const [unitName, setUnitName] = useState('')
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [docNum, setDocNum] = useState('');
+  const [startDate, setStartDate] = useState('')
 
   return (
     <Dialog open onClose={props.closeModal}>
@@ -41,53 +40,58 @@ function AddStudentForm(props) {
           className={classes.form}
           onSubmit={(e) => {
             e.preventDefault()
-            let newClassroom = {
-              "city": city,
-              "state": state,
-              "roomName": roomName,
-              "unitName": unitName,
+            let newStudent = {
+              "firstName": firstName,
+              "lastName": lastName,
+              "docNum": docNum,
+              "startDate": startDate,
             }
-            props.createClassroom(newClassroom)
-            console.log(newClassroom)
+            props.createStudent(newStudent)
+            props.closeModal()
+            console.log("trying to create student", newStudent)
           }}
         >
           <Typography className={classes.formHeader} variant="h4">Add New Student</Typography>
           <TextField
-            onChange={(e) => setRoomName(e.target.value)}
+            onChange={(e) => setFirstName(e.target.value)}
             required
             className={classes.formField}
             color="secondary"
-            label="Classroom Name"
+            label="First Name"
             variant="outlined"
           />
           <TextField
-            onChange={(e) => setState(e.target.value)}
+            onChange={(e) => setLastName(e.target.value)}
             required
             className={classes.formField}
             color="secondary"
-            label="State"
+            label="Last name"
             variant="outlined"
           />
           <TextField
-            onChange={(e) => setCity(e.target.value)}
+            onChange={(e) => setDocNum(e.target.value)}
             required
             className={classes.formField}
             color="secondary"
-            label="City"
+            label="DOC Number"
             variant="outlined"
           />
           <TextField
-            onChange={(e) => setUnitName(e.target.value)}
-            required
+            id="date"
+            onChange={(e) => setStartDate(e.target.value)}
             className={classes.formField}
-            color="secondary"
-            label="Unit Name"
             variant="outlined"
+            label="Start Date"
+            type="date"
+            color="secondary"
+            InputLabelProps={{
+              shrink: true,
+            }}
           />
           <Button
             type="submit"
             variant="contained"
-            color="primary"
+            color="secondary"
             className={classes.submitBtn}
           >
             Add Student
@@ -100,7 +104,7 @@ function AddStudentForm(props) {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    createClassroom: (classroom) => dispatch(createClassroom(classroom)),
+    createStudent: (student) => dispatch(createStudent(student)),
     closeModal: () => dispatch(closeModal())
   }
 }
