@@ -16,6 +16,7 @@ function HomePage({ auth }) {
 const mapStateToProps = (state) => {
   return {
     classrooms: state.firestore.ordered.classrooms,
+    students: state.firestore.ordered.students,
     auth: state.firebase.auth,
     profile: state.firebase.profile
   }
@@ -23,5 +24,5 @@ const mapStateToProps = (state) => {
 
 export default compose(
   connect(mapStateToProps),
-  firestoreConnect(() => ['classrooms'])
+  firestoreConnect(() => ['classrooms', 'students'])
 )(HomePage)
