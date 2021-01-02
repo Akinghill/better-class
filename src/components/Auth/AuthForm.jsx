@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { signUp } from '../../store/actions/authActions'
 import { makeStyles } from '@material-ui/core/styles';
-import { Button, Card, TextField, Typography } from '@material-ui/core'
+import { Button, Card, TextField, Typography, FormControl, InputLabel, Select, MenuItem } from '@material-ui/core'
 import { signIn } from '../../store/actions/authActions'
 
 const useStyles = makeStyles((theme) => ({
@@ -37,13 +37,13 @@ const useStyles = makeStyles((theme) => ({
   },
   active: {
     cursor: "default",
-    color: theme.palette.primary.light,
+    color: theme.palette.secondary.main,
     "&::after": {
       content: '""',
       display: "block",
       height: '3px',
       width: "100%",
-      background: theme.palette.primary.light
+      background: theme.palette.secondary.main
     }
   }
 }));
@@ -56,6 +56,9 @@ function AuthForm(props) {
   const [password, setPassword] = React.useState("");
   const [firstName, setFirstName] = React.useState("");
   const [lastName, setLastName] = React.useState("");
+  const [classroomId, setClassroomId] = React.useState('');
+
+  console.log(classroomId)
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -64,7 +67,8 @@ function AuthForm(props) {
         email: email,
         password: password,
         firstName: firstName,
-        lastName: lastName
+        lastName: lastName,
+        classroomId: classroomId
       })
     } else {
       props.signIn({
@@ -120,6 +124,21 @@ function AuthForm(props) {
               label="Last Name"
               variant="outlined"
             />
+            <FormControl color='secondary' variant="outlined" className={classes.formField}>
+              <InputLabel id="demo-simple-select-outlined-label">Classroom ID</InputLabel>
+              <Select
+                labelId="demo-simple-select-outlined-label"
+                id="demo-simple-select-outlined"
+                onChange={(e) => { setClassroomId(e.target.value) }}
+                value={classroomId}
+                label="Classroom ID"
+              >
+                <MenuItem value="AZPV">AZPV</MenuItem>
+                <MenuItem value="AZRR">AZRR</MenuItem>
+                <MenuItem value="AZWSAM">AZWSAM</MenuItem>
+                <MenuItem value="AZWSPM">AZWSPM</MenuItem>
+              </Select>
+            </FormControl>
           </>
         }
         <Button
