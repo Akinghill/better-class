@@ -4,9 +4,9 @@ import { compose } from 'redux'
 import { firestoreConnect } from 'react-redux-firebase'
 
 function ClassroomPage(props) {
-  const id = props.match.params.classroomId
-  console.log(id)
-  console.log(props)
+  const id = props.match.params.classroomId;
+  console.log(id);
+  console.log(props);
   return (
     <div>
       <h1>

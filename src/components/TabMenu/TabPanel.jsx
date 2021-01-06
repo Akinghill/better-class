@@ -19,7 +19,6 @@ const useStyles = makeStyles({
 })
 
 function TabPanel(props) {
-  console.log('props are ', props.classroom)
   const classes = useStyles();
   const { children, value, index, option, ...other } = props;
 

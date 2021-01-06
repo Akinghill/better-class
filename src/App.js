@@ -20,8 +20,7 @@ class App extends React.Component {
             <Switch>
               <Route exact path='/' component={HomePage} />
               <Route exact path='/classroom/:classroomId' component={ClassroomPage} />
-              <Route exact path='/students/:studentid' component={StudentPage} />
-              <Route exact path='/students/:studentid' component={StudentPage} />
+              <Route exact path='/student/:studentId' component={StudentPage} />
             </Switch>
           </MainLayout>
         </ThemeProvider>
