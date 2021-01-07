@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/better-class/static/css/main.a8385cbd.chunk.css",
-    "main.js": "/better-class/static/js/main.e004e068.chunk.js",
-    "main.js.map": "/better-class/static/js/main.e004e068.chunk.js.map",
+    "main.js": "/better-class/static/js/main.34b1a735.chunk.js",
+    "main.js.map": "/better-class/static/js/main.34b1a735.chunk.js.map",
     "runtime-main.js": "/better-class/static/js/runtime-main.06607511.js",
     "runtime-main.js.map": "/better-class/static/js/runtime-main.06607511.js.map",
-    "static/js/2.d652c0be.chunk.js": "/better-class/static/js/2.d652c0be.chunk.js",
-    "static/js/2.d652c0be.chunk.js.map": "/better-class/static/js/2.d652c0be.chunk.js.map",
+    "static/js/2.23a92406.chunk.js": "/better-class/static/js/2.23a92406.chunk.js",
+    "static/js/2.23a92406.chunk.js.map": "/better-class/static/js/2.23a92406.chunk.js.map",
     "index.html": "/better-class/index.html",
     "static/css/main.a8385cbd.chunk.css.map": "/better-class/static/css/main.a8385cbd.chunk.css.map",
-    "static/js/2.d652c0be.chunk.js.LICENSE.txt": "/better-class/static/js/2.d652c0be.chunk.js.LICENSE.txt"
+    "static/js/2.23a92406.chunk.js.LICENSE.txt": "/better-class/static/js/2.23a92406.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.06607511.js",
-    "static/js/2.d652c0be.chunk.js",
+    "static/js/2.23a92406.chunk.js",
     "static/css/main.a8385cbd.chunk.css",
-    "static/js/main.e004e068.chunk.js"
+    "static/js/main.34b1a735.chunk.js"
   ]
 }
