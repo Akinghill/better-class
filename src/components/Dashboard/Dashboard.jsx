@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Typography, Box } from '@material-ui/core'
-import theme from '../../theme'
+import { Typography } from '@material-ui/core'
 
 import AddClassForm from '../Forms/AddClassForm'
 import AddStudentForm from '../Forms/AddStudentForm'

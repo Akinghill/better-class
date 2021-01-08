@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { firestoreConnect } from 'react-redux-firebase'
 
-import { makeStyles } from '@material-ui/core/styles';
-import { Container, Typography } from '@material-ui/core'
+import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { Container, Typography, Paper } from '@material-ui/core'
 
 import TabMenu from '../../components/TabMenu/TabMenu'
 
@@ -12,15 +12,29 @@ import TabMenu from '../../components/TabMenu/TabMenu'
 const useStyles = makeStyles({
   pageContainer: {
     display: "flex",
-    justifyContent: "center",
-    padding: "2rem 2rem"
+    padding: '0px',
+    margin: "0px"
+  },
+  studentData: {
+    padding: "2rem"
+  },
+  startDate: {
+    color: "rgba(255,255,255, 0.6)"
   }
 })
 
 function StudentPage(props) {
   const classes = useStyles();
   const tabOptions = ["Projects", "Assessments"]
+  const theme = useTheme();
+
   const { student } = props
+
+  const makeDate = (timestamp) => {
+    const milSeconds = timestamp * 1000
+    const dateObject = new Date(milSeconds)
+    return dateObject.toLocaleDateString()
+  }
   console.log(student)
 
 
@@ -28,20 +42,26 @@ function StudentPage(props) {
     <Container className={classes.pageContainer}>
       {
         student ? (
-        <>
-          <Container className={classes.classPanel} maxWidth="md">
-            <Typography variant="h3">
-              {`${student.firstName} ${student.lastName}`}
-            </Typography>
-          </Container>
-          <Container maxWidth="md">
+          <>
+            <Paper className={classes.studentData} maxWidth="md">
+              <Typography variant="h4">
+                Student: {`${student.firstName} ${student.lastName}`}
+              </Typography>
+              <Typography variant="h5" className={classes.startDate}>
+                Start Date: {`${makeDate(student.startDate.seconds)}`}
+              </Typography>
+              <Typography variant="h5" style={{color:theme.palette.secondary.light}}>
+                Enrolled
+              </Typography>
+            </Paper>
+            {/* <Container maxWidth="md">
             <div style={{ "margin": "auto" }}>
               <TabMenu
                 tabOptions={tabOptions}
               />
             </div>
-          </Container>
-        </>
+          </Container> */}
+          </>
         ) : (<div>Loading...</div>)
       }
 
