@@ -58,8 +58,6 @@ function AuthForm(props) {
   const [lastName, setLastName] = React.useState("");
   const [classroomId, setClassroomId] = React.useState('');
 
-  console.log(classroomId)
-
   const handleSubmit = (e) => {
     e.preventDefault()
     if (showSignUp) {

@@ -5,12 +5,12 @@ import { firestoreConnect } from 'react-redux-firebase'
 
 function ClassroomPage(props) {
   const id = props.match.params.classroomId;
-  console.log(id);
-  console.log(props);
+  const { classroom } = props
+  console.log(props.classroom.roomName)
   return (
     <div>
       <h1>
-        Classroom Page
+        {classroom.roomName}
       </h1>
     </div>
   )
